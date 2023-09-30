@@ -1,9 +1,10 @@
 import Posts from "../models/posts.model.js";
 
 const createPost = async (userBody) => {
-    const {content} = userBody;
+    const {content, title} = userBody;
     setTimeout(async() => {
-        const newPost = await Posts.build({content});
+        const newPost = await Posts.build({title, content});
+        console.log(newPost);
         await newPost.save();
     }, 1000);
 };
@@ -21,8 +22,9 @@ const getPost = async (params) => {
 
 const updatePost = async (postBody, postParams) => {
     const {postId} = postParams;
-    const {content} = postBody;
+    const {content, title} = postBody;
     const post = await Posts.update({
+        title,
         content
     },{
         where: { 

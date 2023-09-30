@@ -12,6 +12,10 @@ setTimeout(async() => {
                 primaryKey: true,
                 allowNull: true,
             },
+            title: {
+                type: DataTypes.STRING,
+                allowNull: true,
+            },
             content: {
                 type: DataTypes.JSON
             }
