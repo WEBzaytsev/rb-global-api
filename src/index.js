@@ -24,5 +24,5 @@ try {
 } catch(err) {
   console.log(err)
 }
-
+// TODO: Сделать обратный вызов подклбчения к базе, и ждать подключение, пробовать подключиться каждые 5 сек
 export default sequelize;
