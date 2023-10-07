@@ -10,17 +10,14 @@ services:
       dockerfile: Dockerfile
     command: npm run start
     ports:
-      - "3000:3000"
-  postgres:
+      - "3000:3000" # "Host port(edit for port conflict):container port"
+  postgres-rb:
     image: postgres:14
+    restart: unless-stopped
+    container_name: postgres-rb
     environment:
       POSTGRES_USER: ${USER_DB}
       POSTGRES_DB: ${NAME_DB}
       POSTGRES_PASSWORD: ${PASS_DB}
     ports:
-      - "5432:5432"
-    healthcheck:
-      test: [“CMD-SHELL”, “pg_isready”]
-      interval: 1s
-      timeout: 5s
-      retries: 10
+      - "5432:5432" # "Host port(edit for port conflict):container port"
