@@ -10,7 +10,8 @@ services:
       dockerfile: Dockerfile
     command: npm run start
     ports:
-      - "3000:${PORT}" # "Host port(edit for port conflict):container port"
+      - "3000:${PORT}"
+    # "Host port(edit for port conflict):container port"
     # networks:
     #   - caddy
   postgres-rb:
@@ -22,7 +23,8 @@ services:
       POSTGRES_DB: ${NAME_DB}
       POSTGRES_PASSWORD: ${PASS_DB}
     ports:
-      - "5432:5432" # "Host port(edit for port conflict):container port"
+      - "5432:5432"
+    # "Host port(edit for port conflict):container port"
     # networks:
     #   - caddy
 # networks:
