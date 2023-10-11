@@ -1,25 +1,26 @@
 import config from './config/config.js';
 import logger from './config/logger.js';
 import { Sequelize } from 'sequelize';
-import pg from 'pg';
+import mysql from 'mysql2';
 import app from './app.js';
 let server;
+
 const sequelize = new Sequelize(config.database_db, config.user_db, config.password_db, {
   host: config.host_db,
-  dialect: 'postgres',
-  dialectModule: pg,
+  dialect: 'mysql',
+  dialectModule: mysql,
   logging: false,
 });
 
 
 try {
   await sequelize.authenticate().then(() => {
-    logger.info('Подключился к Postgres');
+    logger.info('Connected to the MySQL');
     server = app.listen(config.port, () => {
-      logger.info(`Сервер запустился на порту ${config.port}`);
+      logger.info(`Server is running on port ${config.port}`);
     });
   }).catch((err) => {
-    console.log('Ошибка подключения к Postgres: ', err.message);
+    console.log('An error occurred: ', err.message);
   });
 } catch(err) {
   console.log(err)
