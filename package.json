@@ -20,7 +20,7 @@
     "http-status": "^1.7.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "pg": "^8.11.3",
+    "mysql2": "^3.6.1",
     "sequelize": "^6.33.0",
     "sqlite3": "^5.1.6",
     "uuidv4": "^6.2.13",
