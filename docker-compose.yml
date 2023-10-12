@@ -14,16 +14,19 @@ services:
     # "Host port(edit for port conflict):container port"
     # networks:
     #   - caddy
-  postgres-rb:
-    image: postgres:14
+  mysql-rb:
+    image: mysql:8.0.34
     restart: unless-stopped
-    container_name: postgres-rb
+    container_name: mysql-rb
     environment:
-      POSTGRES_USER: ${USER_DB}
-      POSTGRES_DB: ${NAME_DB}
-      POSTGRES_PASSWORD: ${PASS_DB}
+      MYSQL_ROOT_PASSWORD: ${ROOT_MYSQL}
+      MYSQL_DATABASE: ${NAME_DB}
+      MYSQL_USER: ${USER_DB}
+      MYSQL_PASSWORD: ${PASS_DB}
+    volumes:
+      - ./db:/var/lib/mysql
     ports:
-      - "5432:5432"
+      - "3306:3306"
     # "Host port(edit for port conflict):container port"
     # networks:
     #   - caddy
