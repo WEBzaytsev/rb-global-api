@@ -9,10 +9,6 @@ services:
       - 8075:80
     env_file:
       - ./.env
-    environment:
-      PMA_ABSOLUTE_URI: https://pma-rb.zaitsv.dev
-    volumes:
-      - pma-data:/var/lib/phpmyadmin/data
 #     networks:
 #       - caddy
 # networks:
