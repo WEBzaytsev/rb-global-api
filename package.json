@@ -23,6 +23,7 @@
     "mysql2": "^3.6.1",
     "sequelize": "^6.33.0",
     "sqlite3": "^5.1.6",
+    "transliteration": "^2.3.5",
     "uuidv4": "^6.2.13",
     "winston": "^3.10.0"
   },
