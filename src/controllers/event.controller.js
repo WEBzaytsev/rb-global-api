@@ -1,33 +1,33 @@
 import catchAsync from '../utils/catchAsync.js';
-import eventsService from "../services/events.service.js";
+import eventService from "../services/event.service.js";
 import httpStatus from 'http-status';
 
 const addEvent = catchAsync(async (req, res) => {
-    const event = await eventsService.createEvent(req.body);
+    const event = await eventService.createEvent(req.body);
     res.status(httpStatus.CREATED).send(event);
 });
 
 const getEvent = catchAsync(async (req, res) => {
-    const event = await eventsService.getEvent(req.params);
+    const event = await eventService.getEvent(req.params);
     res.status(httpStatus.OK).send(event.dataValues);
 });
 
 const updateEvent = catchAsync(async (req, res) => {
-    await eventsService.updateEvent(req.body, req.params);
+    await eventService.updateEvent(req.body, req.params);
     res.status(httpStatus.OK).send({
         success: true
     });
 });
 
 const deleteEvent = catchAsync(async (req, res) => {
-    await eventsService.deleteEvent(req.params);
+    await eventService.deleteEvent(req.params);
     res.status(httpStatus.OK).send({
         success: true
     })
 });
 
 const allEvents = catchAsync(async (req, res) => {
-    const event = await eventsService.getAllEvents();
+    const event = await eventService.getAllEvents();
     res.status(httpStatus.OK).send(event);
 });
 
