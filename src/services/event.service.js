@@ -1,4 +1,4 @@
-import Events from "../models/events.model.js";
+import Events from "../models/event.model.js";
 
 const createEvent = async (userBody) => {
     const {number, date, url, isShow, place} = userBody;
@@ -15,7 +15,6 @@ const getEvent = async (params) => {
         where: {id}
     });
 }
-
 
 const updateEvent = async (postBody, postParams) => {
     const {id} = postParams;
@@ -36,9 +35,11 @@ const deleteEvent = async (params) => {
 const getAllEvents = async () => {
     const eventsList = await Events.findAll();
     const arrEvent = [];
-    await eventsList.map((item) => {
+
+    eventsList.map((item) => {
         arrEvent.push(item.dataValues);
     });
+
     return arrEvent;
 }
 
