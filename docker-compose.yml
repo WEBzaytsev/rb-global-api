@@ -8,6 +8,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
+    image: rb-global-api:latest
     command: npm run start
     ports:
       - "3000:${PORT}"
