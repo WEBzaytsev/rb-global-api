@@ -1,2 +1,7 @@
 node_modules
 npm-debug.log
+package-lock.json
+.env.example
+.gitignore
+phpmyadmin.yml
+.DS_Store
