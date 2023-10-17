@@ -7,10 +7,12 @@ services:
     restart: unless-stopped
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/Dockerfile
     command: npm run start
     ports:
       - "3000:${PORT}"
+    env_file:
+     - ./.env
     # "Host port(edit for port conflict):container port"
     # networks:
     #   - caddy
@@ -24,9 +26,11 @@ services:
       MYSQL_USER: ${USER_DB}
       MYSQL_PASSWORD: ${PASS_DB}
     volumes:
-      - ./db:/var/lib/mysql
+      - ./docker/db:/var/lib/mysql
     ports:
       - "3306:3306"
+    env_file:
+     - ./.env
     # "Host port(edit for port conflict):container port"
     # networks:
     #   - caddy
