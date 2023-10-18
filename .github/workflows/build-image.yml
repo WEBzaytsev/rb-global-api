@@ -1,6 +1,6 @@
-name: push to docker hub
 
 on: [push]
+name: push to docker hub
 
 jobs:
   docker:
@@ -25,4 +25,4 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: "registry.zaitsv.dev/${{ secrets.DOCKERHUB_USERNAME }}/rb-global-api:latest""
+          tags: "registry.zaitsv.dev/${{ secrets.DOCKERHUB_USERNAME }}/rb-global-api:latest"
