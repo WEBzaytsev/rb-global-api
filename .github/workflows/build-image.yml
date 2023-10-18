@@ -23,6 +23,6 @@ jobs:
           file: ./docker/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: "registry.zaitsv.dev/${{ secrets.DOCKERHUB_USERNAME }}/rb-global-client:latest"
-          cache-from: "type=registry,ref=registry.zaitsv.dev/rb-global-client:buildcache"
-          cache-to: "type=registry,ref=registry.zaitsv.dev/rb-global-client:buildcache,mode=max"
+          tags: "registry.zaitsv.dev/${{ secrets.DOCKERHUB_USERNAME }}/rb-global-api:latest"
+          cache-from: "type=registry,ref=registry.zaitsv.dev/rb-global-api:buildcache"
+          cache-to: "type=registry,ref=registry.zaitsv.dev/rb-global-api:buildcache,mode=max"
