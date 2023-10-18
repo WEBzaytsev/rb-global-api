@@ -23,5 +23,6 @@ jobs:
           context: .
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
+          provenance: false
           push: true
           tags: registry.zaitsv.dev/${{ secrets.DOCKERHUB_USERNAME }}/rb-global-api:latest
